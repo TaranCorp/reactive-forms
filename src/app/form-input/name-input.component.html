@@ -1,0 +1,28 @@
+
+<div class="field">
+    <label class="label">{{label}}</label>
+    <div class="control" >
+        <input class="input" [ngClass]="{'is-danger': isNameValid()}" [formControl]="control"/>
+    </div>
+</div>
+<div 
+    class="help is-danger"
+    *ngIf="control.errors?.['required'] && control.dirty"
+>Value is required
+</div>
+<div
+    class="help is-danger"
+    *ngIf="control.errors?.['minlength']"
+>Minimum characters: {{control.errors?.['minlength'].requiredLength}}
+</div>
+<div
+    class="help is-danger"
+    *ngIf="control.errors?.['maxlength']"
+>Maximum characters: {{control.errors?.['maxlength'].requiredLength}} 
+</div>
+<div
+    class="help is-danger"
+    *ngIf="control.errors?.['pattern']"    
+>
+    Invalid pattern
+</div>
